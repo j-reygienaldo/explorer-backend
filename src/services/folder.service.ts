@@ -16,9 +16,14 @@ export async function getParentFolder() {
     orderBy: { id: "asc" },
   });
 
+  const findFiles = await db.file.findMany({
+    where: { folder_id: null, isDeleted: false || null },
+    orderBy: { id: "asc" },
+  });
+
   return {
     message: "Succesfully fetch data!",
-    data: result,
+    data: [...result, ...findFiles],
   };
 }
 
@@ -28,10 +33,15 @@ export async function getSubFolder(parent_id: number) {
     orderBy: { id: "asc" },
   });
 
+  const findFiles = await db.file.findMany({
+    where: { folder_id: parent_id, isDeleted: false || null },
+    orderBy: { id: "asc" },
+  });
+
   if (result)
     return {
       message: "Succesfully fetch data!",
-      data: result,
+      data: [...result, ...findFiles],
     };
 }
 
