@@ -34,7 +34,7 @@ The project run on port 3000, so please check either:
 
 ## Todo
 
-- [x] Create basic routes
-- [x] Create basic services
+- [x] Create route and service for Folder
+- [x] Create route and service for File
 - [x] Integrate with Prisma
 - [] Implement auth
