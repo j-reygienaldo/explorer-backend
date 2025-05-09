@@ -23,3 +23,14 @@ model Folder {
   deleted_at DateTime?
   isDeleted  Boolean?
 }
+
+model File {
+  id         Int       @id @default(autoincrement())
+  name       String    @db.VarChar(30)
+  folder_id  Int?
+  type       String?   @db.VarChar(20)
+  created_at DateTime  @default(now())
+  updated_at DateTime? @updatedAt
+  deleted_at DateTime?
+  isDeleted  Boolean?
+}

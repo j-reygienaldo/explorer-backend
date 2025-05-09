@@ -130,6 +130,17 @@ exports.Prisma.FolderScalarFieldEnum = {
   isDeleted: 'isDeleted'
 };
 
+exports.Prisma.FileScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  folder_id: 'folder_id',
+  type: 'type',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  deleted_at: 'deleted_at',
+  isDeleted: 'isDeleted'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -147,7 +158,8 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  Folder: 'Folder'
+  Folder: 'Folder',
+  File: 'File'
 };
 
 /**
