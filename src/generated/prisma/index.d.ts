@@ -895,18 +895,30 @@ export namespace Prisma {
     id: number | null
     name: string | null
     parent_id: number | null
+    created_at: Date | null
+    updated_at: Date | null
+    deleted_at: Date | null
+    isDeleted: boolean | null
   }
 
   export type FolderMaxAggregateOutputType = {
     id: number | null
     name: string | null
     parent_id: number | null
+    created_at: Date | null
+    updated_at: Date | null
+    deleted_at: Date | null
+    isDeleted: boolean | null
   }
 
   export type FolderCountAggregateOutputType = {
     id: number
     name: number
     parent_id: number
+    created_at: number
+    updated_at: number
+    deleted_at: number
+    isDeleted: number
     _all: number
   }
 
@@ -925,18 +937,30 @@ export namespace Prisma {
     id?: true
     name?: true
     parent_id?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+    isDeleted?: true
   }
 
   export type FolderMaxAggregateInputType = {
     id?: true
     name?: true
     parent_id?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+    isDeleted?: true
   }
 
   export type FolderCountAggregateInputType = {
     id?: true
     name?: true
     parent_id?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+    isDeleted?: true
     _all?: true
   }
 
@@ -1030,6 +1054,10 @@ export namespace Prisma {
     id: number
     name: string
     parent_id: number | null
+    created_at: Date
+    updated_at: Date | null
+    deleted_at: Date | null
+    isDeleted: boolean | null
     _count: FolderCountAggregateOutputType | null
     _avg: FolderAvgAggregateOutputType | null
     _sum: FolderSumAggregateOutputType | null
@@ -1055,27 +1083,43 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     parent_id?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    isDeleted?: boolean
   }, ExtArgs["result"]["folder"]>
 
   export type FolderSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     parent_id?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    isDeleted?: boolean
   }, ExtArgs["result"]["folder"]>
 
   export type FolderSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     parent_id?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    isDeleted?: boolean
   }, ExtArgs["result"]["folder"]>
 
   export type FolderSelectScalar = {
     id?: boolean
     name?: boolean
     parent_id?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    isDeleted?: boolean
   }
 
-  export type FolderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "parent_id", ExtArgs["result"]["folder"]>
+  export type FolderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "parent_id" | "created_at" | "updated_at" | "deleted_at" | "isDeleted", ExtArgs["result"]["folder"]>
 
   export type $FolderPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Folder"
@@ -1084,6 +1128,10 @@ export namespace Prisma {
       id: number
       name: string
       parent_id: number | null
+      created_at: Date
+      updated_at: Date | null
+      deleted_at: Date | null
+      isDeleted: boolean | null
     }, ExtArgs["result"]["folder"]>
     composites: {}
   }
@@ -1510,6 +1558,10 @@ export namespace Prisma {
     readonly id: FieldRef<"Folder", 'Int'>
     readonly name: FieldRef<"Folder", 'String'>
     readonly parent_id: FieldRef<"Folder", 'Int'>
+    readonly created_at: FieldRef<"Folder", 'DateTime'>
+    readonly updated_at: FieldRef<"Folder", 'DateTime'>
+    readonly deleted_at: FieldRef<"Folder", 'DateTime'>
+    readonly isDeleted: FieldRef<"Folder", 'Boolean'>
   }
     
 
@@ -1893,7 +1945,11 @@ export namespace Prisma {
   export const FolderScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    parent_id: 'parent_id'
+    parent_id: 'parent_id',
+    created_at: 'created_at',
+    updated_at: 'updated_at',
+    deleted_at: 'deleted_at',
+    isDeleted: 'isDeleted'
   };
 
   export type FolderScalarFieldEnum = (typeof FolderScalarFieldEnum)[keyof typeof FolderScalarFieldEnum]
@@ -1957,6 +2013,27 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1980,12 +2057,20 @@ export namespace Prisma {
     id?: IntFilter<"Folder"> | number
     name?: StringFilter<"Folder"> | string
     parent_id?: IntNullableFilter<"Folder"> | number | null
+    created_at?: DateTimeFilter<"Folder"> | Date | string
+    updated_at?: DateTimeNullableFilter<"Folder"> | Date | string | null
+    deleted_at?: DateTimeNullableFilter<"Folder"> | Date | string | null
+    isDeleted?: BoolNullableFilter<"Folder"> | boolean | null
   }
 
   export type FolderOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     parent_id?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrderInput | SortOrder
+    deleted_at?: SortOrderInput | SortOrder
+    isDeleted?: SortOrderInput | SortOrder
   }
 
   export type FolderWhereUniqueInput = Prisma.AtLeast<{
@@ -1995,12 +2080,20 @@ export namespace Prisma {
     NOT?: FolderWhereInput | FolderWhereInput[]
     name?: StringFilter<"Folder"> | string
     parent_id?: IntNullableFilter<"Folder"> | number | null
+    created_at?: DateTimeFilter<"Folder"> | Date | string
+    updated_at?: DateTimeNullableFilter<"Folder"> | Date | string | null
+    deleted_at?: DateTimeNullableFilter<"Folder"> | Date | string | null
+    isDeleted?: BoolNullableFilter<"Folder"> | boolean | null
   }, "id">
 
   export type FolderOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     parent_id?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrderInput | SortOrder
+    deleted_at?: SortOrderInput | SortOrder
+    isDeleted?: SortOrderInput | SortOrder
     _count?: FolderCountOrderByAggregateInput
     _avg?: FolderAvgOrderByAggregateInput
     _max?: FolderMaxOrderByAggregateInput
@@ -2015,45 +2108,77 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Folder"> | number
     name?: StringWithAggregatesFilter<"Folder"> | string
     parent_id?: IntNullableWithAggregatesFilter<"Folder"> | number | null
+    created_at?: DateTimeWithAggregatesFilter<"Folder"> | Date | string
+    updated_at?: DateTimeNullableWithAggregatesFilter<"Folder"> | Date | string | null
+    deleted_at?: DateTimeNullableWithAggregatesFilter<"Folder"> | Date | string | null
+    isDeleted?: BoolNullableWithAggregatesFilter<"Folder"> | boolean | null
   }
 
   export type FolderCreateInput = {
     name: string
     parent_id?: number | null
+    created_at?: Date | string
+    updated_at?: Date | string | null
+    deleted_at?: Date | string | null
+    isDeleted?: boolean | null
   }
 
   export type FolderUncheckedCreateInput = {
     id?: number
     name: string
     parent_id?: number | null
+    created_at?: Date | string
+    updated_at?: Date | string | null
+    deleted_at?: Date | string | null
+    isDeleted?: boolean | null
   }
 
   export type FolderUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     parent_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type FolderUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     parent_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type FolderCreateManyInput = {
     id?: number
     name: string
     parent_id?: number | null
+    created_at?: Date | string
+    updated_at?: Date | string | null
+    deleted_at?: Date | string | null
+    isDeleted?: boolean | null
   }
 
   export type FolderUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     parent_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type FolderUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     parent_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2093,6 +2218,33 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type BoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -2102,6 +2254,10 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     parent_id?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type FolderAvgOrderByAggregateInput = {
@@ -2113,12 +2269,20 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     parent_id?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type FolderMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     parent_id?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type FolderSumOrderByAggregateInput = {
@@ -2176,6 +2340,42 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -2186,6 +2386,18 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type NullableBoolFieldUpdateOperationsInput = {
+    set?: boolean | null
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -2230,6 +2442,33 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedBoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2301,6 +2540,42 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
 

@@ -123,7 +123,11 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.FolderScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  parent_id: 'parent_id'
+  parent_id: 'parent_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  deleted_at: 'deleted_at',
+  isDeleted: 'isDeleted'
 };
 
 exports.Prisma.SortOrder = {

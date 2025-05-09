@@ -15,7 +15,11 @@ datasource db {
 }
 
 model Folder {
-  id        Int    @id @default(autoincrement())
-  name      String @db.VarChar(30)
-  parent_id Int?
+  id         Int       @id @default(autoincrement())
+  name       String    @db.VarChar(30)
+  parent_id  Int?
+  created_at DateTime  @default(now())
+  updated_at DateTime? @updatedAt
+  deleted_at DateTime?
+  isDeleted  Boolean?
 }
