@@ -37,4 +37,8 @@ The project run on port 3000, so please check either:
 - [x] Create route and service for Folder
 - [x] Create route and service for File
 - [x] Integrate with Prisma
-- [] Implement auth
+- [ ] Implement auth
+- [ ] Add documentation
+- [ ] Fix some ts type error (if you know, you know)
+
+PS: i've attached the postman collection, import it if you feel a little bit lost ✌🏻
